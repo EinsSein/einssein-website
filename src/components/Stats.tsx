@@ -19,16 +19,16 @@ export default function Stats() {
   return (
     <section className="relative py-20 md:py-28">
       <div className="mx-auto max-w-[1180px] px-6">
-        <div className="overflow-hidden rounded-[36px] border border-black/5 bg-[var(--bg-card)]">
+        <div className="overflow-hidden rounded-[36px] border border-[var(--dash)]/60 bg-[var(--support-300)]">
           <div className="grid items-stretch gap-0 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="p-8 md:p-12">
-              <p className="text-[13px] uppercase tracking-[0.18em] text-[var(--fg-muted)]">
+              <p className="t-badge uppercase tracking-[0.18em] text-[var(--support-330)]">
                 Wirkung
               </p>
-              <h2 className="mt-3 font-serif text-[36px] leading-[1.05] tracking-[-0.02em] sm:text-[44px] md:text-[52px]">
+              <h2 className="t-title-md mt-3 font-serif text-[var(--text)]">
                 Aus kleinen Taten wird große Wirkung
               </h2>
-              <p className="mt-5 max-w-xl text-[16px] leading-relaxed text-[var(--fg-muted)]">
+              <p className="t-body-18 mt-5 max-w-xl text-[var(--text)]/80">
                 Wir bringen Menschen zusammen – mit Programmen, die Kindern und
                 Jugendlichen Raum zum Wachsen geben und unsere Nachbarschaft
                 lebendig halten.
@@ -38,7 +38,7 @@ export default function Stats() {
                 {tags.map((t) => (
                   <span
                     key={t}
-                    className="inline-flex items-center rounded-full border border-black/10 bg-[var(--bg-soft)] px-3.5 py-1.5 text-[13px] text-[var(--fg)]"
+                    className="t-badge inline-flex items-center rounded-full border border-[var(--text)]/10 bg-[var(--wrapped-fill)] px-3.5 py-1.5 text-[var(--text)]"
                   >
                     {t}
                   </span>
@@ -48,10 +48,8 @@ export default function Stats() {
               <dl className="mt-10 grid grid-cols-2 gap-x-8 gap-y-8">
                 {stats.map((s) => (
                   <div key={s.label}>
-                    <dt className="font-serif text-[40px] leading-none tracking-[-0.02em] sm:text-[48px]">
-                      {s.value}
-                    </dt>
-                    <dd className="mt-2 text-[13.5px] text-[var(--fg-muted)]">
+                    <dt className="t-metric font-serif">{s.value}</dt>
+                    <dd className="t-body-14 mt-2 text-[var(--text)]/70">
                       {s.label}
                     </dd>
                   </div>

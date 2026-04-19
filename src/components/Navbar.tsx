@@ -24,15 +24,16 @@ export default function Navbar() {
 
   return (
     <header
+      suppressHydrationWarning
       className={`fixed left-1/2 top-4 z-50 -translate-x-1/2 transition-all duration-300 ${
         scrolled ? "w-[min(96%,1100px)]" : "w-[min(96%,1180px)]"
       }`}
     >
       <nav
-        className={`flex items-center justify-between gap-6 rounded-full border border-black/5 px-3 py-2 backdrop-blur-xl transition-colors duration-300 ${
+        className={`flex items-center justify-between gap-6 rounded-full border border-[var(--dash)]/60 px-3 py-2 backdrop-blur-xl transition-colors duration-300 ${
           scrolled
-            ? "bg-white/80 shadow-[0_8px_32px_-12px_rgba(20,20,20,0.18)]"
-            : "bg-white/60"
+            ? "bg-[var(--wrapped-fill)]/90 shadow-[0_8px_32px_-12px_rgba(17,16,17,0.18)]"
+            : "bg-[var(--wrapped-fill)]/70"
         }`}
       >
         <Link href="/" className="flex items-center gap-2 pl-1">
@@ -44,8 +45,8 @@ export default function Navbar() {
             className="h-9 w-9 object-contain"
             priority
           />
-          <span className="hidden text-[15px] font-semibold tracking-tight sm:inline">
-            EinsSein <span className="text-[var(--fg-muted)]">e.V.</span>
+          <span className="t-menu hidden font-semibold tracking-tight sm:inline">
+            EinsSein <span className="text-[var(--support-120)]">e.V.</span>
           </span>
         </Link>
 
@@ -54,7 +55,7 @@ export default function Navbar() {
             <li key={l.href}>
               <Link
                 href={l.href}
-                className="rounded-full px-4 py-2 text-[14px] text-[var(--fg)] transition-colors hover:bg-black/5"
+                className="t-menu rounded-full px-4 py-2 text-[var(--text)] transition-colors hover:bg-[var(--background)]"
               >
                 {l.label}
               </Link>
@@ -65,33 +66,33 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <Link
             href="/unterstuetzen"
-            className="hidden rounded-full bg-[var(--accent)] px-5 py-2.5 text-[14px] font-medium text-[var(--accent-foreground)] transition-transform hover:scale-[1.02] sm:inline-block"
+            className="t-menu hidden rounded-full bg-[var(--text)] px-5 py-2.5 font-medium text-[var(--background)] transition-transform hover:scale-[1.02] sm:inline-block"
           >
             Unterstützen!
           </Link>
           <button
             aria-label="Menü öffnen"
             onClick={() => setOpen((v) => !v)}
-            className="grid h-10 w-10 place-items-center rounded-full bg-black/5 md:hidden"
+            className="grid h-10 w-10 place-items-center rounded-full bg-[var(--background)] md:hidden"
           >
             <span className="sr-only">Menü</span>
             <div className="space-y-1.5">
-              <span className="block h-0.5 w-4 bg-[var(--fg)]" />
-              <span className="block h-0.5 w-4 bg-[var(--fg)]" />
+              <span className="block h-0.5 w-4 bg-[var(--text)]" />
+              <span className="block h-0.5 w-4 bg-[var(--text)]" />
             </div>
           </button>
         </div>
       </nav>
 
       {open && (
-        <div className="mt-2 rounded-3xl border border-black/5 bg-white/95 p-4 shadow-xl backdrop-blur md:hidden">
+        <div className="mt-2 rounded-3xl border border-[var(--dash)]/50 bg-[var(--wrapped-fill)] p-4 shadow-xl md:hidden">
           <ul className="flex flex-col gap-1">
             {links.map((l) => (
               <li key={l.href}>
                 <Link
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-2xl px-4 py-3 text-[15px] hover:bg-black/5"
+                  className="t-menu block rounded-2xl px-4 py-3 hover:bg-[var(--background)]"
                 >
                   {l.label}
                 </Link>
@@ -101,7 +102,7 @@ export default function Navbar() {
               <Link
                 href="/unterstuetzen"
                 onClick={() => setOpen(false)}
-                className="mt-1 block rounded-2xl bg-[var(--accent)] px-4 py-3 text-center text-[15px] font-medium text-[var(--accent-foreground)]"
+                className="t-menu mt-1 block rounded-2xl bg-[var(--text)] px-4 py-3 text-center font-medium text-[var(--background)]"
               >
                 Unterstützen!
               </Link>

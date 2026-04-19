@@ -4,7 +4,7 @@ import { images } from "@/lib/images";
 
 export default function Footer() {
   return (
-    <footer className="relative mt-20 overflow-hidden border-t border-black/5 bg-[var(--bg-soft)]">
+    <footer className="relative mt-12 overflow-hidden border-t border-[var(--dash)]/50 bg-[var(--support-100)]">
       <div className="mx-auto max-w-[1180px] px-6 py-16">
         <div className="grid gap-10 md:grid-cols-[1.2fr_1fr_1fr_1fr]">
           <div>
@@ -16,11 +16,11 @@ export default function Footer() {
                 height={40}
                 className="h-10 w-10 object-contain"
               />
-              <span className="text-[16px] font-semibold tracking-tight">
-                EinsSein <span className="text-[var(--fg-muted)]">e.V.</span>
+              <span className="t-menu font-semibold tracking-tight">
+                EinsSein <span className="text-[var(--support-120)]">e.V.</span>
               </span>
             </Link>
-            <p className="mt-5 max-w-sm text-[14px] leading-relaxed text-[var(--fg-muted)]">
+            <p className="t-body-14 mt-5 max-w-sm text-[var(--support-120)]">
               In Vielfalt vereint für eine bessere Zukunft. Begegnung, Bildung
               und Engagement in Heilsberg – Bad Vilbel.
             </p>
@@ -59,13 +59,13 @@ export default function Footer() {
           />
         </div>
 
-        <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-black/10 pt-6 text-[13px] text-[var(--fg-muted)] md:flex-row md:items-center">
-          <p>© {new Date().getFullYear()} EinsSein e.V. – Alle Rechte vorbehalten.</p>
+        <div className="t-body-14 mt-12 flex flex-col items-start justify-between gap-4 border-t border-[var(--dash)]/60 pt-6 text-[var(--support-120)] md:flex-row md:items-center">
+          <p>© 2026 EinsSein e.V. – Alle Rechte vorbehalten.</p>
           <div className="flex items-center gap-5">
-            <Link href="/impressum" className="hover:text-[var(--fg)]">
+            <Link href="/impressum" className="hover:text-[var(--text)]">
               Impressum
             </Link>
-            <Link href="/datenschutz" className="hover:text-[var(--fg)]">
+            <Link href="/datenschutz" className="hover:text-[var(--text)]">
               Datenschutz
             </Link>
           </div>
@@ -84,7 +84,7 @@ function FooterCol({
 }) {
   return (
     <div>
-      <h4 className="text-[13px] uppercase tracking-[0.18em] text-[var(--fg-muted)]">
+      <h4 className="t-badge uppercase tracking-[0.18em] text-[var(--support-120)]">
         {title}
       </h4>
       <ul className="mt-4 space-y-2">
@@ -93,7 +93,7 @@ function FooterCol({
             <Link
               href={l.href}
               {...(l.external ? { target: "_blank", rel: "noreferrer" } : {})}
-              className="text-[14.5px] text-[var(--fg)] transition-colors hover:text-[var(--fg-muted)]"
+              className="t-body-16 text-[var(--text)] transition-colors hover:text-[var(--support-120)]"
             >
               {l.label}
             </Link>

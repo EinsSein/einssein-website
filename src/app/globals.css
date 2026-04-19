@@ -1,22 +1,46 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #f4ede2;
-  --bg-soft: #ece4d6;
-  --bg-card: #ffffff;
-  --fg: #141414;
-  --fg-muted: #6b6358;
-  --fg-soft: #8a8276;
-  --border: rgba(20, 20, 20, 0.08);
-  --accent: #141414;
-  --accent-foreground: #f4ede2;
-  --hero-gradient: radial-gradient(
-      120% 80% at 80% 0%,
-      #ffd58a 0%,
-      #ffb070 28%,
-      #ff8a4a 55%,
-      #f4ede2 90%
-    );
+  /* Core */
+  --background: #ecebe4;
+  --wrapped-fill: #f9f7f6;
+  --dash: #c5c5c5;
+  --text: #111011;
+  --text-subtle: #100f10;
+
+  /* Support neutrals */
+  --support-100: #f4f2ef;
+  --support-120: #827c6a;
+
+  /* Support purple */
+  --support-200: #e5dbeb;
+  --support-220: #decae8;
+  --support-230: #987da5;
+
+  /* Support green */
+  --support-300: #d2e8c8;
+  --support-320: #c1deaf;
+  --support-330: #6f9954;
+
+  /* Support blue */
+  --support-400: #dce4ea;
+  --support-420: #ccd3d9;
+  --support-430: #94a1aa;
+
+  /* Support peach */
+  --support-500: #fae4d0;
+  --support-510: #c28951;
+
+  /* Aliases used across components */
+  --bg: var(--background);
+  --bg-soft: var(--support-100);
+  --bg-card: var(--wrapped-fill);
+  --fg: var(--text);
+  --fg-muted: var(--support-120);
+  --fg-soft: #a59f8d;
+  --border: rgba(17, 16, 17, 0.08);
+  --accent: var(--text);
+  --accent-foreground: var(--background);
 }
 
 @theme inline {
@@ -27,6 +51,19 @@
   --color-border: var(--border);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+
+  --color-purple-50: var(--support-200);
+  --color-purple-100: var(--support-220);
+  --color-purple-700: var(--support-230);
+  --color-green-50: var(--support-300);
+  --color-green-100: var(--support-320);
+  --color-green-700: var(--support-330);
+  --color-blue-50: var(--support-400);
+  --color-blue-100: var(--support-420);
+  --color-blue-700: var(--support-430);
+  --color-peach-50: var(--support-500);
+  --color-peach-700: var(--support-510);
+
   --font-sans: var(--font-sans);
   --font-serif: var(--font-serif);
   --font-script: var(--font-script);
@@ -51,12 +88,86 @@ body {
   font-family: var(--font-serif), "Times New Roman", serif;
   letter-spacing: -0.02em;
 }
-
 .font-script {
   font-family: var(--font-script), cursive;
 }
 
-/* Marquee animation for partners */
+/* ── Typography scale from styles.md ───────────────────────────── */
+.t-h1 {
+  font-size: clamp(40px, 6vw, 60px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.t-h2 {
+  font-size: clamp(36px, 5vw, 52px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.t-h3 {
+  font-size: clamp(28px, 3.6vw, 36px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.t-h4 {
+  font-size: clamp(24px, 2.6vw, 30px);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+.t-h5 {
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.t-title-md {
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+.t-title-sm {
+  font-size: clamp(26px, 3vw, 36px);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+.t-metric {
+  font-size: clamp(36px, 4.4vw, 48px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+.t-quote {
+  font-size: clamp(20px, 2.4vw, 26px);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.t-badge {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.t-menu {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.t-body-24 {
+  font-size: 24px;
+  line-height: 1.5;
+}
+.t-body-20 {
+  font-size: 20px;
+  line-height: 1.5;
+}
+.t-body-18 {
+  font-size: 18px;
+  line-height: 1.5;
+}
+.t-body-16 {
+  font-size: 16px;
+  line-height: 1.4;
+}
+.t-body-14 {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* ── Marquee ─────────────────────────────────────────────────── */
 @keyframes marquee {
   0% {
     transform: translateX(0);
@@ -66,23 +177,23 @@ body {
   }
 }
 .animate-marquee {
-  animation: marquee 40s linear infinite;
+  animation: marquee 45s linear infinite;
 }
 .animate-marquee:hover {
   animation-play-state: paused;
 }
 
-/* Subtle shimmer hover for cards */
+/* ── Cards ────────────────────────────────────────────────────── */
 .card-hover {
   transition: transform 280ms cubic-bezier(0.2, 0.65, 0.3, 1),
     box-shadow 280ms ease;
 }
 .card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 24px 60px -28px rgba(20, 20, 20, 0.25);
+  box-shadow: 0 24px 60px -28px rgba(17, 16, 17, 0.18);
 }
 
-/* FAQ details marker reset */
+/* ── Details/FAQ ─────────────────────────────────────────────── */
 details > summary {
   list-style: none;
   cursor: pointer;

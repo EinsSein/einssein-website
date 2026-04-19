@@ -27,26 +27,24 @@ export default function FAQ() {
       <div className="mx-auto max-w-[1180px] px-6">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
-            <p className="text-[13px] uppercase tracking-[0.18em] text-[var(--fg-muted)]">
+            <p className="t-badge uppercase tracking-[0.18em] text-[var(--support-120)]">
               Häufige Fragen
             </p>
-            <h2 className="mt-3 font-serif text-[40px] leading-[1.05] tracking-[-0.02em] sm:text-[52px] md:text-[60px]">
-              FAQ
-            </h2>
-            <p className="mt-5 max-w-md text-[16px] leading-relaxed text-[var(--fg-muted)]">
+            <h2 className="t-h2 mt-3 font-serif">FAQ</h2>
+            <p className="t-body-18 mt-5 max-w-md text-[var(--support-120)]">
               Antworten auf die häufigsten Fragen zu unseren Camps, Programmen
               und der Mitarbeit. Du findest deine Frage nicht? Schreib uns!
             </p>
           </div>
 
-          <div className="divide-y divide-black/10 rounded-[24px] border border-black/5 bg-[var(--bg-card)]">
+          <div className="divide-y divide-[var(--dash)]/60 rounded-[24px] border border-[var(--dash)]/50 bg-[var(--wrapped-fill)]">
             {faqs.map((f) => (
               <details key={f.q} className="group px-6 py-5 md:px-8">
                 <summary className="flex items-center justify-between gap-6 text-left">
-                  <span className="text-[16px] font-medium text-[var(--fg)] md:text-[17px]">
+                  <span className="t-body-18 font-medium text-[var(--text)]">
                     {f.q}
                   </span>
-                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[var(--bg-soft)] transition-transform group-open:rotate-45">
+                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[var(--background)] transition-transform group-open:rotate-45">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
                       <path
                         d="M12 5v14M5 12h14"
@@ -57,7 +55,7 @@ export default function FAQ() {
                     </svg>
                   </span>
                 </summary>
-                <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-[var(--fg-muted)]">
+                <p className="t-body-16 mt-4 max-w-2xl text-[var(--support-120)]">
                   {f.a}
                 </p>
               </details>

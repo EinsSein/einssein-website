@@ -17,18 +17,16 @@ export default function InstagramSection() {
       <div className="mx-auto max-w-[1180px] px-6">
         <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
           <div>
-            <p className="text-[13px] uppercase tracking-[0.18em] text-[var(--fg-muted)]">
+            <p className="t-badge uppercase tracking-[0.18em] text-[var(--support-120)]">
               @einssein.bv
             </p>
-            <h2 className="mt-3 font-serif text-[40px] leading-[1.05] tracking-[-0.02em] sm:text-[52px] md:text-[60px]">
-              Instagram
-            </h2>
+            <h2 className="t-h2 mt-3 font-serif">Instagram</h2>
           </div>
           <Link
             href="https://www.instagram.com/einssein.bv"
             target="_blank"
             rel="noreferrer noopener"
-            className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-5 py-2.5 text-[14px] font-medium transition-colors hover:bg-black/5"
+            className="t-menu inline-flex items-center gap-2 rounded-full border border-[var(--dash)] bg-[var(--wrapped-fill)] px-5 py-2.5 font-medium transition-colors hover:bg-[var(--support-100)]"
           >
             Auf Instagram folgen
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
@@ -50,7 +48,7 @@ export default function InstagramSection() {
               href="https://www.instagram.com/einssein.bv"
               target="_blank"
               rel="noreferrer noopener"
-              className="card-hover relative block aspect-square overflow-hidden rounded-2xl border border-black/5 bg-[var(--bg-card)]"
+              className="card-hover relative block aspect-square overflow-hidden rounded-2xl border border-[var(--dash)]/40 bg-[var(--wrapped-fill)]"
             >
               <Image
                 src={src}

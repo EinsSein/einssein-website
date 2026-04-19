@@ -8,6 +8,7 @@ const quotes = [
     author: "Bahá'u'lláh",
     role: "Ährenlese 122:1",
     image: images.gradientBubble,
+    surface: "var(--support-200)",
   },
   {
     quote:
@@ -15,6 +16,7 @@ const quotes = [
     author: "Helferteam",
     role: "Sommercamp Heilsberg",
     image: images.gradientShapes,
+    surface: "var(--support-500)",
   },
 ];
 
@@ -26,45 +28,51 @@ export default function Testimonials() {
           {quotes.map((q) => (
             <figure
               key={q.author}
-              className="card-hover relative overflow-hidden rounded-[28px] border border-black/5 bg-[var(--bg-card)] p-8 md:p-10"
+              className="card-hover relative overflow-hidden rounded-[28px] border border-[var(--dash)]/50 bg-[var(--wrapped-fill)] p-8 md:p-10"
             >
-              <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full opacity-40 blur-2xl">
-                <Image
-                  src={q.image}
-                  alt=""
-                  fill
-                  sizes="200px"
-                  className="object-cover"
-                />
+              <div
+                className="absolute -right-20 -top-20 h-56 w-56 rounded-full opacity-60 blur-2xl"
+                style={{ backgroundColor: q.surface }}
+              />
+              <div className="relative">
+                <svg
+                  width="36"
+                  height="36"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  className="mb-6 text-[var(--support-120)]"
+                >
+                  <path
+                    d="M7.17 6A5.17 5.17 0 0 0 2 11.17V18h6v-6.83H4.5A2.67 2.67 0 0 1 7.17 8.5V6Zm10 0A5.17 5.17 0 0 0 12 11.17V18h6v-6.83h-3.5A2.67 2.67 0 0 1 17.17 8.5V6Z"
+                    fill="currentColor"
+                  />
+                </svg>
+                <blockquote className="t-quote font-serif text-[var(--text)]">
+                  {q.quote}
+                </blockquote>
+                <figcaption className="mt-8 flex items-center gap-3">
+                  <span
+                    className="grid h-10 w-10 place-items-center overflow-hidden rounded-full"
+                    style={{ backgroundColor: q.surface }}
+                  >
+                    <Image
+                      src={q.image}
+                      alt=""
+                      width={40}
+                      height={40}
+                      className="h-10 w-10 object-cover"
+                    />
+                  </span>
+                  <span>
+                    <span className="t-body-14 block font-medium text-[var(--text)]">
+                      {q.author}
+                    </span>
+                    <span className="t-body-14 block text-[var(--support-120)]">
+                      {q.role}
+                    </span>
+                  </span>
+                </figcaption>
               </div>
-              <svg
-                width="36"
-                height="36"
-                viewBox="0 0 24 24"
-                fill="none"
-                className="mb-6 text-[var(--fg-soft)]"
-              >
-                <path
-                  d="M7.17 6A5.17 5.17 0 0 0 2 11.17V18h6v-6.83H4.5A2.67 2.67 0 0 1 7.17 8.5V6Zm10 0A5.17 5.17 0 0 0 12 11.17V18h6v-6.83h-3.5A2.67 2.67 0 0 1 17.17 8.5V6Z"
-                  fill="currentColor"
-                />
-              </svg>
-              <blockquote className="font-serif text-[22px] leading-snug tracking-[-0.01em] sm:text-[26px]">
-                {q.quote}
-              </blockquote>
-              <figcaption className="mt-8 flex items-center gap-3">
-                <span className="grid h-10 w-10 place-items-center rounded-full bg-[var(--bg-soft)] text-[14px] font-semibold">
-                  {q.author.slice(0, 1)}
-                </span>
-                <span>
-                  <span className="block text-[14px] font-medium text-[var(--fg)]">
-                    {q.author}
-                  </span>
-                  <span className="block text-[13px] text-[var(--fg-muted)]">
-                    {q.role}
-                  </span>
-                </span>
-              </figcaption>
             </figure>
           ))}
         </div>

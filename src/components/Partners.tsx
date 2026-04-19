@@ -44,14 +44,14 @@ export default function Partners() {
   const items = [...partners, ...partners];
 
   return (
-    <section className="relative py-16 md:py-24">
+    <section className="relative py-12 md:py-16">
       <div className="mx-auto max-w-[1180px] px-6">
-        <p className="text-center text-[13px] uppercase tracking-[0.18em] text-[var(--fg-muted)]">
+        <p className="t-badge text-center uppercase tracking-[0.18em] text-[var(--support-120)]">
           Unsere Partnerschaften
         </p>
       </div>
 
-      <div className="relative mt-10 overflow-hidden">
+      <div className="relative mt-8 overflow-hidden">
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-[var(--bg)] to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-[var(--bg)] to-transparent" />
 
@@ -62,10 +62,10 @@ export default function Partners() {
               href={p.href}
               target="_blank"
               rel="noreferrer noopener"
-              className="group flex h-[88px] w-[300px] shrink-0 items-center gap-4 rounded-2xl border border-black/5 bg-white/70 px-5 backdrop-blur transition-colors hover:bg-white"
+              className="group flex h-[88px] w-[300px] shrink-0 items-center gap-4 rounded-2xl border border-[var(--dash)]/50 bg-[var(--wrapped-fill)] px-5 transition-colors hover:bg-[var(--support-100)]"
               title={p.name}
             >
-              <div className="grid h-14 w-14 shrink-0 place-items-center overflow-hidden rounded-xl bg-white">
+              <div className="grid h-14 w-14 shrink-0 place-items-center overflow-hidden rounded-xl bg-[var(--background)]">
                 <Image
                   src={p.logo}
                   alt={p.name}
@@ -75,10 +75,10 @@ export default function Partners() {
                 />
               </div>
               <div className="min-w-0">
-                <div className="truncate text-[14px] font-medium text-[var(--fg)]">
+                <div className="t-body-14 truncate font-medium text-[var(--text)]">
                   {p.name}
                 </div>
-                <div className="truncate text-[12.5px] text-[var(--fg-muted)]">
+                <div className="t-body-14 truncate text-[var(--support-120)]">
                   {p.note}
                 </div>
               </div>
