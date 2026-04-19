@@ -1,26 +1,92 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #f4ede2;
+  --bg-soft: #ece4d6;
+  --bg-card: #ffffff;
+  --fg: #141414;
+  --fg-muted: #6b6358;
+  --fg-soft: #8a8276;
+  --border: rgba(20, 20, 20, 0.08);
+  --accent: #141414;
+  --accent-foreground: #f4ede2;
+  --hero-gradient: radial-gradient(
+      120% 80% at 80% 0%,
+      #ffd58a 0%,
+      #ffb070 28%,
+      #ff8a4a 55%,
+      #f4ede2 90%
+    );
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
+  --color-muted: var(--fg-muted);
+  --color-soft: var(--fg-soft);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+  --font-script: var(--font-script);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+* {
+  border-color: var(--border);
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, sans-serif;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-serif {
+  font-family: var(--font-serif), "Times New Roman", serif;
+  letter-spacing: -0.02em;
+}
+
+.font-script {
+  font-family: var(--font-script), cursive;
+}
+
+/* Marquee animation for partners */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Subtle shimmer hover for cards */
+.card-hover {
+  transition: transform 280ms cubic-bezier(0.2, 0.65, 0.3, 1),
+    box-shadow 280ms ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px -28px rgba(20, 20, 20, 0.25);
+}
+
+/* FAQ details marker reset */
+details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+details > summary::-webkit-details-marker {
+  display: none;
 }

@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EinsSein e.V. – Website
 
-## Getting Started
+Nachbau der bisherigen Framer-Seite [einssein.framer.website](https://einssein.framer.website/) als eigenständige Next.js-Anwendung. Die Seite ist für Vercel optimiert und kann mit einer Custom Domain verbunden werden.
 
-First, run the development server:
+## Tech Stack
+
+- [Next.js 16](https://nextjs.org/) (App Router, React 19)
+- [Tailwind CSS 4](https://tailwindcss.com/)
+- TypeScript
+- `next/font` für Hanken Grotesk, Lustria, Allison
+
+## Lokale Entwicklung
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Die Seite läuft danach unter [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Production Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+## Projektstruktur
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/
+│   ├── layout.tsx        # Root Layout, Fonts, Metadata
+│   ├── page.tsx          # Startseite – komponiert alle Sections
+│   └── globals.css       # Globale Styles & Designtokens
+├── components/
+│   ├── Navbar.tsx
+│   ├── Hero.tsx
+│   ├── Partners.tsx
+│   ├── Projects.tsx
+│   ├── CalendarSection.tsx
+│   ├── InstagramSection.tsx
+│   ├── Process.tsx
+│   ├── Stats.tsx
+│   ├── Testimonials.tsx
+│   ├── FAQ.tsx
+│   └── Footer.tsx
+└── lib/
+    └── images.ts         # Zentrale Bild-Pfade
+public/
+└── images/               # Alle aus Framer übernommenen Assets + Logo
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment auf Vercel
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Repository zu GitHub pushen (siehe unten).
+2. Auf [vercel.com/new](https://vercel.com/new) das Repo importieren – Vercel erkennt Next.js automatisch.
+3. Deployment ohne weitere Konfiguration starten.
+4. Unter **Settings → Domains** die eigene Domain (z. B. `einssein.de`) hinzufügen und die DNS-Records gemäß Vercel-Anleitung beim Domain-Provider eintragen.
 
-## Deploy on Vercel
+## Inhalte anpassen
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Texte / Daten:** Direkt in den jeweiligen Komponenten (`src/components/*.tsx`).
+- **Bilder:** Neue Dateien in `public/images/` ablegen und in `src/lib/images.ts` referenzieren.
+- **Kalender:** In `CalendarSection.tsx` die Demo-`src` durch die Embed-URL des echten Google-Kalenders ersetzen.
+- **Instagram:** In `InstagramSection.tsx` den Account/Verlinkung anpassen oder durch ein offizielles Embed-Widget ersetzen.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## TODO / nächste Schritte
+
+- Unterseiten anlegen (`/ueber-uns`, `/kontakt`, `/sommercamp`, `/unterstuetzen`).
+- Echte Inhalte / Texte gegenlesen und ersetzen.
+- Impressum & Datenschutz ergänzen.
+- Eigenes Open-Graph-Bild unter `/public/images/` hinterlegen und in `layout.tsx` verlinken.
